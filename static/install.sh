@@ -100,7 +100,7 @@ VERSION="${VERSION:-}"
 if [[ -z ${VERSION} ]]; then
   # Determine latest VERSION
   echo "Determining latest version"
-  VERSION="$(curl -s https://api.github.com/repos/run-x/opta/releases/latest | grep 'tag_name' | grep -oP '[0-9.]+')"
+  VERSION="$(curl -s https://api.github.com/repos/run-x/opta/releases/latest | grep 'tag_name' | grep -oE '[0-9.]+')"
 else
   VERSION=$(trim_version "${VERSION}")
 fi
